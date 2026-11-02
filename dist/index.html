@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Современный сайт производителя газобетона — продукция, расчёт объёма и инженерная поддержка." />
+  <title>Богарт — газобетон для тёплого дома</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header" id="top">
+    <a class="logo" href="#top" aria-label="Богарт, на главную">
+      <span class="logo-mark" aria-hidden="true"><i></i><i></i><i></i></span>
+      <span>БОГАРТ<small>газобетон</small></span>
+    </a>
+    <nav class="desktop-nav" aria-label="Основная навигация">
+      <a href="#products">Продукция</a><a href="#services">Сервисы</a><a href="#projects">Объекты</a><a href="#about">О компании</a>
+    </nav>
+    <a class="phone" href="tel:+78317032060"><small>Отдел продаж</small>+7 (831) 703-20-60</a>
+    <button class="menu-toggle" aria-label="Открыть меню" aria-expanded="false"><span></span><span></span></button>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-copy reveal">
+        <div class="eyebrow"><span></span> Автоклавный газобетон</div>
+        <h1>Строим тепло.<br><em>На десятилетия.</em></h1>
+        <p>Точные блоки, инженерная поддержка и доставка на объект — всё, чтобы ваш дом рос быстрее и служил дольше.</p>
+        <div class="hero-actions">
+          <a class="button button-primary" href="#calculator">Рассчитать материалы <span>↗</span></a>
+          <a class="text-link" href="#products">Смотреть каталог <span>↓</span></a>
+        </div>
+      </div>
+      <div class="hero-visual reveal" aria-label="Архитектурная композиция из газобетонных блоков">
+        <div class="sun"></div><div class="shadow-line"></div>
+        <div class="block block-a"></div><div class="block block-b"></div><div class="block block-c"></div>
+        <div class="hero-tag"><b>D400</b><span>оптимальная<br>теплопроводность</span></div>
+        <div class="hero-caption">01 / Тёплый контур</div>
+      </div>
+      <div class="hero-stats">
+        <div><strong>±1 мм</strong><span>точность геометрии</span></div>
+        <div><strong>A1</strong><span>класс пожаростойкости</span></div>
+        <div><strong>100+</strong><span>лет срок службы</span></div>
+      </div>
+    </section>
+
+    <section class="marquee" aria-label="Преимущества"><div>ТОЧНАЯ ГЕОМЕТРИЯ <i>✦</i> ТЕПЛОЭФФЕКТИВНОСТЬ <i>✦</i> ЭКОЛОГИЧНОСТЬ <i>✦</i> БЫСТРАЯ КЛАДКА <i>✦</i></div></section>
+
+    <section class="section products" id="products">
+      <div class="section-head reveal"><div><span class="section-number">01</span><p class="kicker">Продукция</p></div><h2>Материалы, из которых<br>складывается <em>дом</em></h2><p>Подберём плотность, толщину и формат под конструктив вашего проекта.</p></div>
+      <div class="product-grid">
+        <article class="product-card featured reveal"><div class="product-art wall"><i></i><i></i><i></i><i></i><i></i><i></i></div><div class="product-meta"><span>01</span><h3>Стеновые блоки</h3><p>D300–D600 · ширина 200–500 мм</p><a href="#calculator" aria-label="Рассчитать стеновые блоки">↗</a></div></article>
+        <article class="product-card reveal"><div class="product-art partition"><i></i><i></i><i></i></div><div class="product-meta"><span>02</span><h3>Перегородочные блоки</h3><p>D500 · ширина 75–150 мм</p><a href="#calculator" aria-label="Рассчитать перегородочные блоки">↗</a></div></article>
+        <article class="product-card dark reveal"><div class="product-art lintel"><i></i></div><div class="product-meta"><span>03</span><h3>Армированные перемычки</h3><p>Готовое решение для проёмов</p><a href="#calculator" aria-label="Рассчитать перемычки">↗</a></div></article>
+        <article class="product-card reveal"><div class="product-art ublock"><i></i></div><div class="product-meta"><span>04</span><h3>U-образные блоки</h3><p>Для армопоясов и перемычек</p><a href="#calculator" aria-label="Рассчитать U-блоки">↗</a></div></article>
+      </div>
+    </section>
+
+    <section class="calculator" id="calculator">
+      <div class="calc-copy reveal"><span class="section-number light">02</span><p class="kicker">Быстрый расчёт</p><h2>Сколько блоков<br>нужно вашему дому?</h2><p>Укажите параметры стен — калькулятор даст ориентировочный объём и количество поддонов.</p><small>* Расчёт предварительный. Финальную спецификацию подготовит инженер.</small></div>
+      <form class="calc-panel reveal" id="calc-form">
+        <label>Длина стен, м <output id="lengthOut">40</output><input id="length" type="range" min="10" max="150" value="40"></label>
+        <label>Высота стен, м <output id="heightOut">3.0</output><input id="height" type="range" min="2" max="6" step="0.1" value="3"></label>
+        <label>Толщина блока <select id="thickness"><option value="0.3">300 мм</option><option value="0.375" selected>375 мм</option><option value="0.4">400 мм</option><option value="0.5">500 мм</option></select></label>
+        <label>Площадь проёмов, м² <input id="openings" type="number" min="0" max="100" value="18"></label>
+        <div class="calc-result"><span>Ориентировочный объём</span><strong><output id="volume">38.3</output> м³</strong><small>≈ <output id="pallets">26</output> поддонов</small></div>
+        <button class="button button-accent" type="button" id="requestBtn">Получить точный расчёт <span>↗</span></button>
+      </form>
+    </section>
+
+    <section class="section services" id="services">
+      <div class="section-head reveal"><div><span class="section-number">03</span><p class="kicker">Сервисы</p></div><h2>Не просто материал.<br><em>Система поддержки.</em></h2></div>
+      <div class="service-list">
+        <article class="service-row reveal"><span>01</span><div class="service-icon">⌁</div><h3>Расчёт и комплектация</h3><p>Составим точную спецификацию по проекту и поможем не переплатить за лишний материал.</p><a href="#contact">Подробнее ↗</a></article>
+        <article class="service-row reveal"><span>02</span><div class="service-icon">⌂</div><h3>Техническая поддержка</h3><p>Проверим узлы, дадим рекомендации по кладке и ответим на вопросы вашей бригады.</p><a href="#contact">Подробнее ↗</a></article>
+        <article class="service-row reveal"><span>03</span><div class="service-icon">→</div><h3>Доставка на объект</h3><p>Организуем бережную доставку и разгрузку манипулятором в согласованное время.</p><a href="#contact">Подробнее ↗</a></article>
+      </div>
+    </section>
+
+    <section class="projects" id="projects">
+      <div class="projects-photo"><div class="house"><i></i><i></i><i></i></div><div class="project-badge"><b>Дом 184 м²</b><span>Нижегородская область</span></div></div>
+      <div class="projects-copy reveal"><span class="section-number light">04</span><p class="kicker">Реализованные объекты</p><h2>От частного дома<br>до жилого квартала</h2><p>Наш газобетон работает в малоэтажном и многоэтажном строительстве. Показываем реальные решения и узлы.</p><div class="project-controls"><button aria-label="Предыдущий проект">←</button><span>01 / 04</span><button aria-label="Следующий проект">→</button></div></div>
+    </section>
+
+    <section class="section about" id="about">
+      <div class="about-title reveal"><span class="section-number">05</span><p class="kicker">Производство</p><h2>Качество начинается<br><em>с технологии</em></h2></div>
+      <div class="about-copy reveal"><p>Автоклавная обработка формирует прочную однородную структуру. Компьютерный контроль рецептуры и резки обеспечивает стабильные характеристики каждой партии.</p><div class="about-numbers"><div><strong>24/7</strong><span>контроль<br>производства</span></div><div><strong>100%</strong><span>партий проходят<br>лабораторию</span></div></div><a class="text-link" href="#contact">Узнать о производстве <span>↗</span></a></div>
+    </section>
+
+    <section class="contact" id="contact">
+      <div><p class="kicker">Начните с консультации</p><h2>Построим<br><em>правильно.</em></h2></div>
+      <form id="lead-form"><label><span>Ваше имя</span><input required name="name" placeholder="Александр"></label><label><span>Телефон</span><input required name="phone" type="tel" placeholder="+7 (___) ___-__-__"></label><button class="button button-primary" type="submit">Обсудить проект <span>↗</span></button><p>Нажимая кнопку, вы соглашаетесь с политикой конфиденциальности.</p></form>
+    </section>
+  </main>
+
+  <footer><a class="logo footer-logo" href="#top"><span class="logo-mark"><i></i><i></i><i></i></span><span>БОГАРТ<small>газобетон</small></span></a><div><b>+7 (831) 703-20-60</b><a href="mailto:sales@example.ru">sales@example.ru</a></div><div><span>Нижегородская область</span><span>Пн–Вс, 8:00–20:00</span></div><div class="footer-bottom"><span>© 2026 Богарт</span><span>Концепт сайта</span><a href="#top">Наверх ↑</a></div></footer>
+
+  <div class="modal" id="modal" aria-hidden="true"><div class="modal-card"><button class="modal-close" aria-label="Закрыть">×</button><span class="eyebrow"><span></span> Заявка на расчёт</span><h3>Получите точную спецификацию</h3><p>Оставьте телефон — специалист уточнит параметры проекта.</p><form id="modal-form"><input required placeholder="Ваше имя"><input required type="tel" placeholder="+7 (___) ___-__-__"><button class="button button-accent">Отправить заявку</button></form></div></div>
+  <div class="toast" role="status">Спасибо! Заявка принята.</div>
+  <script src="script.js"></script>
+</body>
+</html>

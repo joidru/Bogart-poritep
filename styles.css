@@ -65,3 +65,15 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 
 /* Keep the mobile cart aligned to the right edge of the header */
 @media(max-width:620px){.header-actions{margin-left:auto}}
+
+/* Mobile navigation overlay */
+@media(max-width:1000px){
+  .menu-button{display:grid;width:42px;height:42px;padding:0;color:#fff;cursor:pointer;place-items:center;flex:0 0 42px}
+  .menu-button i{display:block;width:22px;height:14px}
+  .menu-button[aria-expanded="true"] i{border-color:var(--red)}
+  .mobile-nav{position:absolute;z-index:70;top:100%;left:0;right:0;width:100%;max-width:none;margin:0;padding:8px 0 14px;background:#22301f;border-top:1px solid #3b4b37;box-shadow:0 18px 30px rgba(18,34,16,.2)}
+  .mobile-nav.open{display:grid}
+  .mobile-nav a{padding:13px 20px;border-bottom:1px solid rgba(255,255,255,.08);font-size:14px;font-weight:600}
+  .mobile-nav a:last-child{border-bottom:0}
+  .mobile-nav a:hover,.mobile-nav a:focus-visible{color:#b9e878;background:rgba(255,255,255,.04)}
+}

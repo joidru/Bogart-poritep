@@ -6,6 +6,7 @@ BASE = "http://127.0.0.1:4173"
 SCREENSHOT = Path("/tmp/poritep-studio-home.png")
 DELIVERY_SCREENSHOT = Path("/tmp/poritep-delivery.png")
 OBJECTS_SCREENSHOT = Path("/tmp/poritep-objects.png")
+CONTACTS_SCREENSHOT = Path("/tmp/poritep-selects.png")
 
 
 with sync_playwright() as playwright:
@@ -44,6 +45,9 @@ with sync_playwright() as playwright:
 
     page.goto(f"{BASE}/catalog.html", wait_until="networkidle")
     assert page.locator("#catalogProducts .product-card").count() >= 8
+    sort_box = page.locator("#sort").bounding_box()
+    assert sort_box is not None
+    assert sort_box["width"] >= 220 and sort_box["height"] >= 44
     page.locator("#catalogProducts .product-card .product-image").first.click()
     page.wait_for_load_state("networkidle")
     assert "product.html?id=" in page.url
@@ -54,5 +58,17 @@ with sync_playwright() as playwright:
     assert page.locator(".cart-item").count() == 1
     assert page.locator(".cart-summary").is_visible()
 
-    print(f"PASS: home, FAQ, delivery, objects, search, catalog, product and cart; screenshot={SCREENSHOT}")
+    page.goto(f"{BASE}/contacts.html", wait_until="networkidle")
+    form_selects = page.locator(".lead-form select")
+    assert form_selects.count() == 2
+    input_box = page.locator(".lead-form input").first.bounding_box()
+    assert input_box is not None
+    for index in range(form_selects.count()):
+        select_box = form_selects.nth(index).bounding_box()
+        assert select_box is not None
+        assert abs(select_box["width"] - input_box["width"]) < 2
+        assert select_box["height"] >= 48
+    page.screenshot(path=str(CONTACTS_SCREENSHOT), full_page=True)
+
+    print(f"PASS: home, FAQ, delivery, objects, search, catalog, product, cart and selects; screenshot={CONTACTS_SCREENSHOT}")
     browser.close()

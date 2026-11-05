@@ -77,3 +77,12 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
   .mobile-nav a:last-child{border-bottom:0}
   .mobile-nav a:hover,.mobile-nav a:focus-visible{color:#b9e878;background:rgba(255,255,255,.04)}
 }
+
+/* Readable type scale: 16px base, 12px absolute minimum */
+:root{--font-base:16px;--font-ui:14px;--font-small:12px}
+body{font-size:var(--font-base)}
+.brand small,.nav-phone span,.partner-label,.overline,.hero-trust span,.hero-price span,.hero-price a,.benefit-strip i,.benefit-strip span,.category-card span,.badge,.product-cat,.spec-mini,.price small,.footer p,.footer a,.footer span,.footer-bottom,.breadcrumbs,.availability,.detail-price small,.product-note,.cart-item p,.stats span,.contact-card span,.lead-form label,.search-result span,.search-result b,.hero-image:after,.object-caption span,.object-tile span,.object-project-copy>span,.route-origin>span,.route-destination>span,.source-note,.calc-contact,.calc-ticket>span,.calc-ticket small{font-size:var(--font-small)}
+.catalog-button,.nav-row nav,.btn,.arrow-link,.benefit-strip b,.category-card p,.filter-group h4,.filter-option,.catalog-top span,.catalog-top select,.spec-row,.summary-row,.delivery-steps p,.delivery-options p,.calc-ticket li{font-size:var(--font-ui)}
+.page-title p,.detail-copy p{font-size:var(--font-base)}
+.product-info h3,.hero-trust b,.nav-phone,.cart-item h3,.cart-item strong,.faq-list summary{font-size:var(--font-base)}
+.cart-count{min-width:20px;height:20px;font-size:var(--font-small)}

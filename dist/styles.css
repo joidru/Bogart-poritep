@@ -62,3 +62,6 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 .lead-form select:focus,.catalog-top select:focus{border-color:var(--red);box-shadow:0 0 0 3px rgba(131,189,46,.15);outline:0}
 .catalog-top select{width:230px;height:46px;font-size:12px}
 @media(max-width:600px){.catalog-top{align-items:stretch;gap:12px}.catalog-top select{width:100%}}
+
+/* Keep the mobile cart aligned to the right edge of the header */
+@media(max-width:620px){.header-actions{margin-left:auto}}

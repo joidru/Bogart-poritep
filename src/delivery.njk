@@ -1,0 +1,15 @@
+---
+layout: layouts/base.njk
+permalink: delivery.html
+title: "Доставка и оплата — Poritep Partner"
+pageClass: delivery
+description: "Доставка газобетона Poritep по Нижнему Новгороду и области, самовывоз с завода в Богородске."
+---
+{% from "components/icon.njk" import icon %}
+{% set hero = pageHeroes.delivery %}
+{% include "components/page-hero.njk" %}
+<section class="section"><div class="container delivery-lead"><div><span class="overline">Как проходит заказ</span><h2>Маршрут без лишних перегрузок</h2></div><p>Продукция отправляется с завода Poritep в Богородске собственным или наёмным транспортом. Стоимость зависит от адреса, объёма, типа машины и условий подъезда.</p></div><div class="container delivery-steps"><article><span>1</span><h3>Рассчитываем комплект</h3><p>Проверяем объём, плотность блоков, количество поддонов и сопутствующие материалы.</p></article><article><span>2</span><h3>Проверяем подъезд</h3><p>Уточняем адрес, ширину дороги, покрытие, провода и место для безопасной разгрузки.</p></article><article><span>3</span><h3>Подбираем машину</h3><p>Предлагаем подходящий транспорт и при необходимости манипулятор для разгрузки.</p></article><article><span>4</span><h3>Согласуем дату</h3><p>Фиксируем стоимость и время, передаём контакты водителя перед выездом.</p></article></div></section>
+<section class="delivery-route"><div class="container"><div class="route-origin"><span>Точка отгрузки</span><h2>Завод Poritep НН</h2><p>Нижегородская область, г. Богородск,<br>Дуденевское шоссе, 17</p></div><div class="route-line" aria-hidden="true"><i></i><b></b></div><div class="route-destination"><span>Точка доставки</span><h2>Ваша стройплощадка</h2><p>Нижний Новгород и Нижегородская область</p></div></div></section>
+<section class="section section-gray"><div class="container delivery-options"><article><span class="delivery-icon">{{ icon("truck") }}</span><div><h3>Доставка на объект</h3><p>Тариф рассчитывается индивидуально. Для точного расчёта нужны адрес, объём заказа и информация об условиях разгрузки.</p><a class="arrow-link" href="contacts.html#request">Рассчитать доставку {{ icon("arrow-right") }}</a></div></article><article><span class="delivery-icon">{{ icon("house") }}</span><div><h3>Самовывоз</h3><p>Забрать продукцию можно с завода в Богородске. Машина должна соответствовать требованиям безопасной перевозки Poritep.</p><a class="arrow-link" href="tel:+78312621280">Уточнить время отгрузки {{ icon("arrow-right") }}</a></div></article><article><span class="delivery-icon">{{ icon("wallet-cards") }}</span><div><h3>Оплата</h3><p>Оплата производится по выставленному счёту безналичным переводом или в офисе продаж. Условия подтверждает менеджер.</p><a class="arrow-link" href="contacts.html">Связаться с отделом продаж {{ icon("arrow-right") }}</a></div></article></div></section>
+{% set cta = ctas.delivery %}
+{% include "components/calc-banner.njk" %}

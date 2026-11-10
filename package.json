@@ -1,0 +1,13 @@
+{
+  "name": "poritep-partner-local",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "eleventy && node server.mjs",
+    "build": "eleventy",
+    "clean": "eleventy --quiet"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "^3.1.2"
+  }
+}

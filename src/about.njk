@@ -1,0 +1,9 @@
+---
+layout: layouts/base.njk
+permalink: about.html
+title: "О компании — официальный партнёр Poritep"
+pageClass: about
+---
+{% set hero = pageHeroes.about %}
+{% include "components/page-hero.njk" %}<section class="content-page"><div class="container"><div class="story-grid"><img src="assets/hero-blocks.png" alt="Производство газобетона Poritep"><div class="story-copy"><span class="overline">Наша задача</span><h2>Сделать покупку газобетона понятной</h2><p>Мы работаем как официальный партнёр Poritep в Нижегородской области: консультируем по технологии, считаем спецификацию, комплектуем заказ и организуем доставку.</p><p>Не просто продаём кубометры — помогаем собрать систему стены: блоки нужной плотности и толщины, U-блоки, клей и инструменты.</p><a class="btn btn-red" href="contacts.html#request">Обсудить проект</a></div></div><div class="stats"><div><b>±1 мм</b><span>точность геометрии</span></div><div><b>F100</b><span>морозостойкость</span></div><div><b>A1</b><span>негорючий материал</span></div><div><b>100+</b><span>лет срок службы</span></div></div></div></section>{% set cta = ctas.about %}
+{% include "components/calc-banner.njk" %}

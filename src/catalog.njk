@@ -1,0 +1,76 @@
+---
+layout: layouts/base.njk
+permalink: catalog.html
+title: "Каталог газобетона Poritep"
+pageClass: catalog
+---
+{% from "components/icon.njk" import icon %}
+{% set hero = pageHeroes.catalog %}
+{% include "components/page-hero.njk" %}
+      <section class="section">
+        <div class="container shop-layout">
+          <aside class="filters">
+            <div class="filter-group">
+              <h4>Категория</h4>
+              <label class="filter-option"
+                ><input
+                  class="cat-filter"
+                  type="checkbox"
+                  value="wall"
+                />Стеновые блоки</label
+              ><label class="filter-option"
+                ><input
+                  class="cat-filter"
+                  type="checkbox"
+                  value="partition"
+                />Перегородочные</label
+              ><label class="filter-option"
+                ><input
+                  class="cat-filter"
+                  type="checkbox"
+                  value="u-block"
+                />U-образные блоки</label
+              ><label class="filter-option"
+                ><input
+                  class="cat-filter"
+                  type="checkbox"
+                  value="insulation"
+                />Утеплитель</label
+              ><label class="filter-option"
+                ><input class="cat-filter" type="checkbox" value="mix" />Клей и
+                смеси</label
+              >
+            </div>
+            <div class="filter-group">
+              <h4>Плотность</h4>
+              <label class="filter-option"><input type="checkbox" />D300</label
+              ><label class="filter-option"><input type="checkbox" />D400</label
+              ><label class="filter-option"><input type="checkbox" />D500</label
+              ><label class="filter-option"
+                ><input type="checkbox" />D600</label
+              >
+            </div>
+            <div class="filter-group">
+              <h4>Нужна помощь?</h4>
+              <p class="product-note">
+                Пришлите проект — рассчитаем комплект материалов.
+              </p>
+              <a class="arrow-link" href="contacts.html#request"
+                >Получить расчёт {{ icon("arrow-right") }}</a
+              >
+            </div>
+          </aside>
+          <div>
+            <div class="catalog-top">
+              <span id="catalogCount">8 товаров</span
+              ><select id="sort">
+                <option value="default">По популярности</option>
+                <option value="price-asc">Сначала дешевле</option>
+                <option value="price-desc">Сначала дороже</option>
+              </select>
+            </div>
+            {% from "components/product-card.njk" import productCard %}
+<div class="product-grid catalog-products" id="catalogProducts">{% for product in products %}{{ productCard(product) }}{% endfor %}</div>
+          </div>
+        </div>
+      </section>

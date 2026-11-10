@@ -1,0 +1,68 @@
+---
+layout: layouts/base.njk
+permalink: product.html
+title: "Стеновой блок D400 625×200×200 — Poritep"
+pageClass: product
+---
+{% from "components/icon.njk" import icon %}
+<div class="container" id="productView" data-product-detail data-product-id="d400-200" data-price="7000" data-pallet-volume="2" data-pallet-blocks="80">
+  <div class="breadcrumbs"><a href="index.html">Главная</a> / <a href="catalog.html">Каталог</a> / Стеновые блоки</div>
+  <div class="product-detail">
+   <div class="detail-gallery"><span class="badge">Хит</span><img src="assets/block-d400.webp" alt="Стеновой блок D400 625×200×200"></div>
+   <div class="detail-info">
+    <span class="product-cat">Стеновые блоки · Артикул D400-200</span>
+    <h1>Стеновой блок D400 625×200×200</h1>
+    <div class="availability">{{ icon("circle-check") }}В наличии на заводе</div>
+    <div class="detail-price">7 000 ₽ <small>/ м³</small></div>
+    <div class="product-note">Цена с НДС при покупке кратно поддону. Точную стоимость доставки рассчитает менеджер.</div>
+    
+    <div class="buy-calculator" aria-label="Расчёт заказа">
+     <div class="buy-calc-head"><div><b>Рассчитайте заказ</b><span>Отгрузка целыми поддонами</span></div><strong>1 поддон = 2 м³</strong></div>
+     <div class="buy-calc-inputs">
+      <label>Нужно, м³<span class="number-stepper"><button id="calcVolumeMinus" type="button" aria-label="Уменьшить объём">{{ icon("minus") }}</button><input id="calcVolume" type="number" min="0.001" step="0.001" value="2"><button id="calcVolumePlus" type="button" aria-label="Увеличить объём">{{ icon("plus") }}</button></span></label>
+      <label>Поддоны, шт.<span class="number-stepper"><button id="calcPalletMinus" type="button" aria-label="Уменьшить количество поддонов">{{ icon("minus") }}</button><input id="calcPallets" type="number" min="1" step="1" value="1"><button id="calcPalletPlus" type="button" aria-label="Увеличить количество поддонов">{{ icon("plus") }}</button></span></label>
+     </div>
+     <div class="buy-calc-summary"><div><span>К отгрузке</span><b id="calcActualVolume"></b></div><div><span>Блоков</span><b id="calcResultBlocks"></b></div><div><span>Стоимость</span><b id="calcTotal"></b></div></div>
+     <button class="btn btn-red buy-calc-button" id="detailAdd"><span>Добавить в корзину</span><strong id="calcButtonTotal"></strong></button>
+     <small class="buy-calc-note">Доставка и разгрузка рассчитываются менеджером отдельно.</small>
+    </div>
+    <div class="detail-specs">
+     <div class="spec-row"><span>Размер</span><b>625×200×200 мм</b></div>
+     <div class="spec-row"><span>Марка по плотности</span><b>D400</b></div>
+     <div class="spec-row"><span>В поддоне</span><b>80 шт.</b></div>
+     <div class="spec-row"><span>Количество в 1 м³</span><b>40 шт.</b></div>
+     <div class="spec-row"><span>Производитель</span><b>Poritep</b></div>
+    </div>
+   </div>
+  </div></div><section class="detail-tabs"><div class="container" id="productDescription">
+  <div class="product-information">
+   <div class="product-info-tabs" role="tablist" aria-label="Информация о товаре">
+    <button class="product-info-tab is-active" type="button" role="tab" aria-selected="true" aria-controls="infoAbout" data-info-tab="about">О товаре</button>
+    <button class="product-info-tab" type="button" role="tab" aria-selected="false" aria-controls="infoSpecs" data-info-tab="specs">Характеристики</button>
+    <button class="product-info-tab" type="button" role="tab" aria-selected="false" aria-controls="infoDocuments" data-info-tab="documents">Документы</button>
+   </div>
+   <section class="product-info-panel is-active" id="infoAbout" role="tabpanel" data-info-panel="about">
+    <div class="product-about-simple">
+     <span class="product-info-kicker">Описание товара</span><h2>О товаре</h2>
+     <p class="product-purpose"><b>Назначение:</b> Несущие и самонесущие наружные и внутренние стены</p>
+     <p>Стеновой блок Poritep D400 предназначен для устройства наружных и внутренних стен малоэтажных и многоэтажных зданий. Автоклавная технология обеспечивает однородную структуру материала, точную геометрию и стабильные характеристики партии.</p><p>Точная геометрия позволяет вести кладку на тонкошовный клей, уменьшать мостики холода и получать ровную поверхность под дальнейшую отделку.</p>
+     <h3>Преимущества</h3><ul class="product-benefit-list"><li>{{ icon("check") }}Точная геометрия блоков до ±1 мм</li><li>{{ icon("check") }}Негорючий минеральный материал</li><li>{{ icon("check") }}Быстрая кладка и простая обработка</li></ul>
+    </div>
+   </section>
+   <section class="product-info-panel" id="infoSpecs" role="tabpanel" data-info-panel="specs" hidden>
+    <div class="product-panel-heading"><div><span class="product-info-kicker">Данные для проекта</span><h2>Технические характеристики</h2></div><p>Основные параметры собраны по назначению. Характеристики конкретной партии подтверждаются при оформлении заказа.</p></div>
+    <div class="spec-groups"><section class="spec-group"><div class="spec-group-title"><span class="spec-group-icon">{{ icon("ruler") }}</span><div><h3>Геометрия</h3><span>Размеры одного блока</span></div></div><dl><div><dt>Длина</dt><dd>625 мм</dd></div><div><dt>Ширина</dt><dd>200 мм</dd></div><div><dt>Высота</dt><dd>200 мм</dd></div><div><dt>Объём блока</dt><dd>0,025 м³</dd></div></dl></section><section class="spec-group"><div class="spec-group-title"><span class="spec-group-icon">{{ icon("factory") }}</span><div><h3>Свойства</h3><span>Проектные параметры</span></div></div><dl><div><dt>Плотность</dt><dd>D400</dd></div><div><dt>Прочность</dt><dd>B2,5</dd></div><div><dt>Теплопроводность</dt><dd>0,096 Вт/(м·°С)</dd></div><div><dt>Морозостойкость</dt><dd>F100</dd></div><div><dt>Горючесть</dt><dd>НГ</dd></div></dl></section><section class="spec-group"><div class="spec-group-title"><span class="spec-group-icon">{{ icon("package-check") }}</span><div><h3>Поставка</h3><span>Комплектация заказа</span></div></div><dl><div><dt>В одном кубометре</dt><dd>40 шт.</dd></div><div><dt>В одном поддоне</dt><dd>80 шт.</dd></div><div><dt>Объём поддона</dt><dd>2 м³</dd></div><div><dt>Производитель</dt><dd>Poritep</dd></div><div><dt>Стандарт</dt><dd>ГОСТ 31360-2007</dd></div></dl></section></div>
+   </section>
+   <section class="product-info-panel" id="infoDocuments" role="tabpanel" data-info-panel="documents" hidden>
+    <div class="documents-layout">
+     <aside class="document-trust"><span class="product-info-kicker">Проверенная продукция</span><h2>Документы производителя</h2><p>Сертификаты открываются напрямую с официального сайта Poritep.</p><dl><div><dt>ГОСТ</dt><dd>31360-2007</dd></div><div><dt>НГ</dt><dd>Негорючий материал</dd></div><div><dt>F100</dt><dd>Морозостойкость</dd></div></dl></aside>
+     <div class="certificate-list">
+      <a href="https://poritep.ru/upload/iblock/c1c/h72l33is78skyecx1mvj6xrpb1bvwapa.pdf" target="_blank" rel="noopener"><span class="certificate-type">{{ icon("file-text") }}</span><span><b>Сертификат соответствия ООО «Поритеп НН»</b><small>2 страницы · PDF</small></span><span class="certificate-arrow">{{ icon("external-link") }}</span></a>
+      <a href="https://poritep.ru/upload/iblock/94e/dqr9n0cw34u3r7tkkz0uk2z1026ah2ru.pdf" target="_blank" rel="noopener"><span class="certificate-type">{{ icon("file-text") }}</span><span><b>Пожарный сертификат стеновых блоков</b><small>Официальный документ Poritep · PDF</small></span><span class="certificate-arrow">{{ icon("external-link") }}</span></a>
+      <a href="https://poritep.ru/upload/iblock/b90/b90b824c29c64db869c41f137d9b1c12.pdf" target="_blank" rel="noopener"><span class="certificate-type">{{ icon("file-text") }}</span><span><b>Гигиенический сертификат ООО «Поритеп НН»</b><small>2 страницы · PDF</small></span><span class="certificate-arrow">{{ icon("external-link") }}</span></a>
+     </div>
+    </div>
+   </section>
+  </div></div></section><section class="section"><div class="container"><div class="section-title"><div><span class="overline">Также покупают</span><h2>С этим товаром</h2></div><a class="arrow-link" href="catalog.html">Весь каталог {{ icon("arrow-right") }}</a></div>{% from "components/product-card.njk" import productCard %}
+{% set relatedIds = ["d500-500", "d600-250", "d400-375", "partition-100"] %}
+<div class="product-grid" id="related">{% for product in products %}{% if product.id in relatedIds %}{{ productCard(product) }}{% endif %}{% endfor %}</div></div></section>

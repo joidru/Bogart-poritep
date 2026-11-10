@@ -1,0 +1,12 @@
+---
+layout: layouts/base.njk
+permalink: objects.html
+title: "Объекты Poritep — реализованные проекты"
+pageClass: objects
+description: "Объекты, построенные с применением газобетона Poritep."
+---
+{% set hero = pageHeroes.objects %}
+{% include "components/page-hero.njk" %}
+<section class="section"><div class="container objects-ledger"><article class="object-project object-project-wide" id="ankudinovsky"><div class="object-photo"><img src="assets/object-ankudinovsky.webp" alt="Анкудиевский парк"></div><div class="object-project-copy"><span>Нижний Новгород</span><h2>Анкудиевский парк</h2><p>Жилой комплекс, представленный в официальном портфолио Poritep. Газобетон используется в современной многоэтажной застройке и помогает создавать однородный тёплый контур.</p><a class="arrow-link" href="contacts.html#request">Подобрать блоки для проекта</a></div></article><article class="object-project" id="terraco"><div class="object-photo"><img src="assets/object-terraco.webp" alt="Дом по системе Террако"></div><div class="object-project-copy"><span>Частное строительство</span><h2>Дом по системе Террако</h2><p>Пример применения Poritep в индивидуальном доме с выразительной архитектурой и энергоэффективной оболочкой.</p></div></article><article class="object-project" id="arena"><div class="object-photo"><img src="assets/object-arena.webp" alt="Арена"></div><div class="object-project-copy"><span>Общественный объект</span><h2>Арена</h2><p>Объект из официального портфолио бренда, демонстрирующий применение газобетона в крупном строительстве.</p></div></article><article class="object-project object-project-wide object-project-reverse" id="center-park"><div class="object-photo"><img src="assets/object-center-park.webp" alt="ЖК Центр Парк"></div><div class="object-project-copy"><span>Жилая застройка</span><h2>ЖК «Центр Парк»</h2><p>Газобетон Poritep применяется для стеновых решений в жилых проектах, где важны геометрия кладки, скорость работ и стабильные характеристики материала.</p><a class="arrow-link" href="catalog.html">Перейти в каталог</a></div></article></div></section>
+{% set cta = ctas.objects %}
+{% include "components/calc-banner.njk" %}

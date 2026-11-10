@@ -1,0 +1,18 @@
+{% from "components/icon.njk" import icon %}
+{% macro productCard(product) %}
+<article class="product-card">
+  <a class="product-image" href="product.html">
+    {% if product.badge %}<span class="badge">{{ product.badge }}</span>{% endif %}
+    <img src="{{ product.image }}" alt="{{ product.name }}">
+  </a>
+  <div class="product-info">
+    <span class="product-cat">{{ product.cat }}</span>
+    <a href="product.html"><h3>{{ product.name }}</h3></a>
+    <div class="spec-mini"><span>{{ product.density }}</span><span>{{ product.size }}</span></div>
+    <div class="product-bottom">
+      <div class="price">{{ product.price | formatPrice }} ₽ <small>/ {{ product.unit }}</small></div>
+      <div class="card-actions"><button class="btn btn-red add-cart" data-id="{{ product.id }}">В корзину</button><a class="icon-btn" href="product.html" aria-label="Открыть товар">{{ icon("external-link") }}</a></div>
+    </div>
+  </div>
+</article>
+{% endmacro %}

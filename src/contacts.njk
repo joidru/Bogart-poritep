@@ -1,0 +1,17 @@
+---
+layout: layouts/base.njk
+permalink: contacts.html
+title: "Контакты и доставка — Poritep"
+pageClass: contacts
+---
+{% from "components/icon.njk" import icon %}
+{% set hero = pageHeroes.contacts %}
+{% include "components/page-hero.njk" %}
+<section class="content-page" id="request"><div class="container contact-grid">
+  <div class="contact-details">
+    <div class="contact-card"><span class="contact-card-icon">{{ icon("phone") }}</span><div><span>Отдел продаж</span><b><a href="tel:+78312621280">+7 (831) 262-12-80</a></b><a href="mailto:89200200370@bogart.su">89200200370@bogart.su</a></div></div>
+    <div class="contact-card"><span class="contact-card-icon">{{ icon("map-pin") }}</span><div><span>Офис продаж</span><b>Нижний Новгород</b><p>ул. Почаинская, 35</p></div></div>
+    <div class="contact-card"><span class="contact-card-icon">{{ icon("clock") }}</span><div><span>Режим работы</span><b>Пн–Пт, 9:00–18:00</b><p>Суббота и воскресенье — выходные</p></div></div>
+  </div>
+  <div><span class="overline">Бесплатный расчёт</span><h2>Расскажите о проекте</h2><p>Оставьте контакты и параметры дома. Мы подготовим спецификацию и свяжемся с вами.</p><form class="lead-form"><label>Ваше имя<input required placeholder="Александр"></label><label>Телефон<input required type="tel" placeholder="+7 (___) ___-__-__"></label><label>Тип объекта<select><option>Частный дом</option><option>Многоквартирный дом</option><option>Коммерческий объект</option></select></label><label>Нужна доставка<select><option>Да</option><option>Нет, самовывоз</option></select></label><label class="wide">Комментарий<textarea placeholder="Площадь дома, толщина стен, адрес доставки..."></textarea></label><label class="consent-field wide"><input type="checkbox" required><span>Даю согласие на обработку персональных данных</span></label><button class="btn btn-red" type="submit">Получить расчёт</button></form></div>
+</div></section>

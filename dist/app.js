@@ -15,19 +15,164 @@ const cartCount=()=>Object.values(getCart()).reduce((a,b)=>a+b,0);
 function toast(msg){const t=document.querySelector('#toast');if(!t)return;t.textContent=msg;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2500)}
 function updateCartCount(){document.querySelectorAll('.cart-count').forEach(el=>el.textContent=cartCount())}
 function addToCart(id,qty=1){const c=getCart();c[id]=(c[id]||0)+Number(qty);saveCart(c);toast('Товар добавлен в корзину')}
-function header(){const page=document.body.dataset.page;return `<div class="topbar"><div class="container"><div>Официальный партнёр Poritep в Нижнем Новгороде</div><div class="topbar-info"><span>Пн–Вс 8:00–20:00</span><a href="mailto:sales.nn@poritep.ru">sales.nn@poritep.ru</a></div></div></div><div class="main-header"><div class="container header-main"><button class="menu-button" aria-label="Открыть меню" aria-expanded="false" aria-controls="mobileNav"><i></i></button><a class="brand" href="index.html"><img src="assets/poritep-logo.png" alt="Poritep"><small>официальный<br>партнёр</small></a><a class="catalog-button" href="catalog.html"><i></i>Каталог</a><div class="search-wrap"><form class="search"><input id="searchInput" placeholder="Поиск по каталогу"><button aria-label="Найти"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"></circle><path d="m15.5 15.5 5 5"></path></svg></button></form><div class="search-results" id="searchResults"></div></div><div class="header-actions"><a href="contacts.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="8" r="4"/><path d="M4 21c1-5 4-7 8-7s7 2 8 7"/></svg>Консультация</a><a class="cart-link" href="cart.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M2 4h3l2 12h11l3-8H7"/><circle cx="9" cy="20" r="1"/><circle cx="18" cy="20" r="1"/></svg><span class="cart-count">0</span>Корзина</a></div></div><div class="container nav-row"><nav><a ${page==='home'?'class="active"':''} href="index.html">Главная</a><a ${page==='catalog'?'class="active"':''} href="catalog.html">Продукция</a><a ${page==='delivery'?'class="active"':''} href="delivery.html">Доставка</a><a ${page==='objects'?'class="active"':''} href="objects.html">Объекты</a><a ${page==='about'?'class="active"':''} href="about.html">О компании</a><a ${page==='contacts'?'class="active"':''} href="contacts.html">Контакты</a></nav><a class="nav-phone" href="tel:+78317032060"><span>Позвонить</span>+7 (831) 703-20-60</a></div><nav class="container mobile-nav" id="mobileNav"><a href="catalog.html">Каталог продукции</a><a href="delivery.html">Доставка</a><a href="objects.html">Объекты</a><a href="about.html">О компании</a><a href="contacts.html">Контакты</a><a href="cart.html">Корзина</a></nav></div>`}
-function footer(){return `<div class="footer"><div class="container"><div class="footer-grid"><div><a class="brand" href="index.html"><img src="assets/poritep-logo.png" alt="Poritep"></a><p>Официальный партнёр производителя автоклавного газобетона Poritep в Нижегородской области.</p></div><div><h4>Продукция</h4><div class="footer-links"><a href="catalog.html?category=wall">Стеновые блоки</a><a href="catalog.html?category=partition">Перегородочные блоки</a><a href="catalog.html?category=u-block">U-блоки</a><a href="catalog.html?category=mix">Клей и инструмент</a></div></div><div><h4>Покупателям</h4><div class="footer-links"><a href="delivery.html">Доставка и оплата</a><a href="objects.html">Объекты Poritep</a><a href="contacts.html#request">Расчёт материалов</a><a href="about.html">О компании</a><a href="contacts.html">Контакты</a></div></div><div class="footer-contact"><h4>Отдел продаж</h4><b>+7 (831) 703-20-60</b><a href="mailto:sales.nn@poritep.ru">sales.nn@poritep.ru</a><p>Нижегородская обл., г. Богородск,<br>Дуденевское шоссе, 17</p></div></div><div class="footer-bottom"><span>© 2026 Партнёр Poritep</span><span>Цены не являются публичной офертой</span></div></div></div>`}
-function productCard(p){return `<article class="product-card"><a class="product-image" href="product.html?id=${p.id}">${p.badge?`<span class="badge">${p.badge}</span>`:''}<img src="${p.image}" alt="${p.name}"></a><div class="product-info"><span class="product-cat">${p.cat}</span><a href="product.html?id=${p.id}"><h3>${p.name}</h3></a><div class="spec-mini"><span>${p.density}</span><span>${p.size}</span></div><div class="product-bottom"><div class="price">${fmt(p.price)} <small>/ ${p.unit}</small></div><div class="card-actions"><button class="btn btn-red add-cart" data-id="${p.id}">В корзину</button><a class="icon-btn" href="product.html?id=${p.id}" aria-label="Открыть товар">↗</a></div></div></div></article>`}
-document.querySelector('#header').innerHTML=header();document.querySelector('#footer').innerHTML=footer();updateCartCount();
+updateCartCount();
 const menuButton=document.querySelector('.menu-button'),mobileNav=document.querySelector('.mobile-nav');
 menuButton?.addEventListener('click',()=>{const open=mobileNav.classList.toggle('open');menuButton.setAttribute('aria-expanded',String(open));menuButton.setAttribute('aria-label',open?'Закрыть меню':'Открыть меню')});
 document.addEventListener('keydown',e=>{if(e.key==='Escape'&&mobileNav?.classList.contains('open')){mobileNav.classList.remove('open');menuButton.setAttribute('aria-expanded','false');menuButton.setAttribute('aria-label','Открыть меню');menuButton.focus()}});
 document.addEventListener('click',e=>{const b=e.target.closest('.add-cart');if(b)addToCart(b.dataset.id)});
 const searchInput=document.querySelector('#searchInput'),searchResults=document.querySelector('#searchResults');
-if(searchInput){searchInput.addEventListener('input',()=>{const q=searchInput.value.toLowerCase().trim();const found=q?products.filter(p=>p.name.toLowerCase().includes(q)).slice(0,5):[];searchResults.innerHTML=found.map(p=>`<a class="search-result" href="product.html?id=${p.id}"><img src="${p.image}"><span>${p.name}</span><b>${fmt(p.price)}</b></a>`).join('');searchResults.classList.toggle('open',!!found.length)});document.querySelector('.search').addEventListener('submit',e=>{e.preventDefault();location.href='catalog.html?q='+encodeURIComponent(searchInput.value)})}
-if(document.body.dataset.page==='home')document.querySelector('#homeProducts').innerHTML=products.slice(0,4).map(productCard).join('');
-if(document.body.dataset.page==='catalog')initCatalog();if(document.body.dataset.page==='product')initProduct();if(document.body.dataset.page==='cart')renderCart();
-function initCatalog(){const grid=document.querySelector('#catalogProducts'),count=document.querySelector('#catalogCount'),params=new URLSearchParams(location.search);let active=params.get('category')||'',query=(params.get('q')||'').toLowerCase();if(active)document.querySelector(`[value="${active}"]`)?.setAttribute('checked','checked');function draw(){const checked=[...document.querySelectorAll('.cat-filter:checked')].map(x=>x.value);let list=products.filter(p=>(!checked.length||checked.includes(p.category))&&(!query||p.name.toLowerCase().includes(query)));const sort=document.querySelector('#sort').value;if(sort==='price-asc')list.sort((a,b)=>a.price-b.price);if(sort==='price-desc')list.sort((a,b)=>b.price-a.price);grid.innerHTML=list.map(productCard).join('')||'<p>Товары не найдены.</p>';count.textContent=`${list.length} товаров`}document.querySelectorAll('.cat-filter').forEach(x=>x.addEventListener('change',draw));document.querySelector('#sort').addEventListener('change',draw);draw()}
-function initProduct(){const id=new URLSearchParams(location.search).get('id')||products[0].id,p=products.find(x=>x.id===id)||products[0];document.title=p.name+' — Poritep';document.querySelector('#productView').innerHTML=`<div class="breadcrumbs"><a href="index.html">Главная</a> / <a href="catalog.html">Каталог</a> / ${p.cat}</div><div class="product-detail"><div class="detail-gallery">${p.badge?`<span class="badge">${p.badge}</span>`:''}<img src="${p.image}" alt="${p.name}"></div><div class="detail-info"><span class="product-cat">${p.cat} · Артикул ${p.id.toUpperCase()}</span><h1>${p.name}</h1><div class="availability">● В наличии на заводе</div><div class="detail-price">${fmt(p.price)} <small>/ ${p.unit}</small></div><div class="product-note">Цена с НДС при покупке кратно поддону. Точную стоимость доставки рассчитает менеджер.</div><div class="qty-line"><div class="qty"><button id="minus">−</button><input id="detailQty" value="1" inputmode="decimal"><button id="plus">+</button></div><button class="btn btn-red" id="detailAdd">Добавить в корзину</button></div><div class="detail-specs"><div class="spec-row"><span>Размер</span><b>${p.size}</b></div><div class="spec-row"><span>Марка по плотности</span><b>${p.density}</b></div><div class="spec-row"><span>В поддоне</span><b>${p.pallet}</b></div><div class="spec-row"><span>Количество в 1 м³</span><b>${p.perM3}</b></div><div class="spec-row"><span>Производитель</span><b>Poritep</b></div></div></div></div>`;document.querySelector('#productDescription').innerHTML=`<div><h2>О товаре</h2><p>${p.category==='mix'?'Фирменный состав Poritep для быстрой и технологичной кладки. Сокращает расход материала и помогает получить тонкий равномерный шов.':'Автоклавный газобетон Poritep с точной геометрией и однородной структурой. Подходит для малоэтажного строительства и обеспечивает высокую скорость кладки.'}</p></div><div><h2>Получить расчёт</h2><p>Инженер проверит толщину стен, рассчитает нужный объём и количество поддонов, а также добавит клей, перемычки и доставку.</p><a class="arrow-link" href="contacts.html#request">Отправить проект →</a></div>`;const q=document.querySelector('#detailQty');document.querySelector('#minus').onclick=()=>q.value=Math.max(1,(+q.value||1)-1);document.querySelector('#plus').onclick=()=>q.value=(+q.value||1)+1;document.querySelector('#detailAdd').onclick=()=>addToCart(p.id,+q.value||1);document.querySelector('#related').innerHTML=products.filter(x=>x.id!==p.id).slice(0,4).map(productCard).join('')}
-function renderCart(){const c=getCart(),wrap=document.querySelector('#cartContent'),items=Object.entries(c).map(([id,qty])=>({p:products.find(x=>x.id===id),qty})).filter(x=>x.p);if(!items.length){wrap.innerHTML='<div class="empty-cart"><h2>Корзина пока пуста</h2><p>Добавьте газобетон и сопутствующие материалы из каталога.</p><a class="btn btn-red" href="catalog.html">Перейти в каталог</a></div>';return}const total=items.reduce((s,x)=>s+x.p.price*x.qty,0);wrap.innerHTML=`<div class="cart-layout"><div class="cart-items">${items.map(({p,qty})=>`<div class="cart-item"><img src="${p.image}" alt="${p.name}"><div><h3>${p.name}</h3><p>${p.size} · ${p.unit}</p></div><div class="qty"><button data-change="-1" data-id="${p.id}">−</button><input value="${qty}" readonly><button data-change="1" data-id="${p.id}">+</button></div><strong>${fmt(p.price*qty)}</strong><button class="remove" data-remove="${p.id}">×</button></div>`).join('')}</div><aside class="cart-summary"><h3>Ваш заказ</h3><div class="summary-row"><span>Товаров</span><b>${cartCount()}</b></div><div class="summary-row"><span>Доставка</span><b>по расчёту</b></div><div class="summary-row summary-total"><span>Итого</span><b>${fmt(total)}</b></div><p class="product-note">Итоговая цена уточняется после проверки кратности поддона и адреса доставки.</p><a class="btn btn-red" href="contacts.html#request">Оформить заявку</a></aside></div>`;wrap.querySelectorAll('[data-change]').forEach(b=>b.onclick=()=>{const cc=getCart(),id=b.dataset.id;cc[id]=Math.max(1,cc[id]+Number(b.dataset.change));saveCart(cc);renderCart()});wrap.querySelectorAll('[data-remove]').forEach(b=>b.onclick=()=>{const cc=getCart();delete cc[b.dataset.remove];saveCart(cc);renderCart()})}
-document.querySelectorAll('.lead-form').forEach(f=>f.addEventListener('submit',e=>{e.preventDefault();f.reset();toast('Заявка принята. Мы свяжемся с вами.')}));
+if(searchInput){
+ searchInput.addEventListener('input',()=>{
+  const query=searchInput.value.toLowerCase().trim();
+  const found=query?products.filter(product=>product.name.toLowerCase().includes(query)).slice(0,5):[];
+  searchResults.replaceChildren();
+  found.forEach(product=>{
+   const link=document.createElement('a');
+   const image=document.createElement('img');
+   const name=document.createElement('span');
+   const price=document.createElement('b');
+   link.className='search-result';
+   link.href='product.html';
+   image.src=product.image;
+   image.alt='';
+   name.textContent=product.name;
+   price.textContent=fmt(product.price);
+   link.append(image,name,price);
+   searchResults.append(link);
+  });
+  searchResults.classList.toggle('open',found.length>0);
+ });
+ document.querySelector('.search').addEventListener('submit',event=>{
+  event.preventDefault();
+  location.href='catalog.html?q='+encodeURIComponent(searchInput.value);
+ });
+}
+queueMicrotask(()=>{if(document.body.dataset.page==='product')initProductPage();if(document.body.dataset.page==='cart')renderCart()});
+function renderCart(){
+ const cart=getCart();
+ const wrap=document.querySelector('#cartContent');
+ const items=Object.entries(cart).map(([id,qty])=>({product:products.find(item=>item.id===id),qty})).filter(item=>item.product);
+ wrap.replaceChildren();
+
+ if(!items.length){
+  wrap.append(document.querySelector('#cartEmptyTemplate').content.cloneNode(true));
+  return;
+ }
+
+ const layout=document.querySelector('#cartLayoutTemplate').content.cloneNode(true);
+ const list=layout.querySelector('.cart-items');
+ const itemTemplate=document.querySelector('#cartItemTemplate');
+ items.forEach(({product,qty})=>{
+  const item=itemTemplate.content.cloneNode(true);
+  const image=item.querySelector('[data-cart-image]');
+  image.src=product.image;
+  image.alt=product.name;
+  item.querySelector('[data-cart-name]').textContent=product.name;
+  item.querySelector('[data-cart-meta]').textContent=`${product.size} · ${product.unit}`;
+  item.querySelector('[data-cart-qty]').value=qty;
+  item.querySelector('[data-cart-price]').textContent=fmt(product.price*qty);
+  item.querySelectorAll('[data-change]').forEach(button=>{
+   button.dataset.id=product.id;
+   button.addEventListener('click',()=>{
+    const next=getCart();
+    next[product.id]=Math.max(1,next[product.id]+Number(button.dataset.change));
+    saveCart(next);
+    renderCart();
+   });
+  });
+  const remove=item.querySelector('[data-remove]');
+  remove.dataset.id=product.id;
+  remove.addEventListener('click',()=>{
+   const next=getCart();
+   delete next[product.id];
+   saveCart(next);
+   renderCart();
+  });
+  list.append(item);
+ });
+ const total=items.reduce((sum,item)=>sum+item.product.price*item.qty,0);
+ layout.querySelector('[data-cart-count]').textContent=cartCount();
+ layout.querySelector('[data-cart-total]').textContent=fmt(total);
+ wrap.append(layout);
+}
+document.querySelectorAll('form').forEach(f=>{f.noValidate=true;f.addEventListener('submit',e=>{f.classList.add('was-validated');if(!f.checkValidity()){e.preventDefault();e.stopImmediatePropagation();f.querySelector(':invalid')?.focus()}},true)});
+document.querySelectorAll('.lead-form').forEach(f=>f.addEventListener('submit',e=>{e.preventDefault();f.reset();f.classList.remove('was-validated');toast('Заявка принята. Мы свяжемся с вами.')}));
+
+const formatVolume=value=>new Intl.NumberFormat('ru-RU',{minimumFractionDigits:0,maximumFractionDigits:3}).format(value);
+
+function initProductPage(){
+ const product=document.querySelector('[data-product-detail]');
+ if(!product)return;
+
+ const infoTabs=[...document.querySelectorAll('[data-info-tab]')];
+ const activateInfoTab=name=>{
+  infoTabs.forEach(tab=>{
+   const active=tab.dataset.infoTab===name;
+   tab.classList.toggle('is-active',active);
+   tab.setAttribute('aria-selected',String(active));
+  });
+  document.querySelectorAll('[data-info-panel]').forEach(panel=>{
+   const active=panel.dataset.infoPanel===name;
+   panel.hidden=!active;
+   panel.classList.toggle('is-active',active);
+  });
+ };
+ infoTabs.forEach((tab,index)=>{
+  tab.addEventListener('click',()=>activateInfoTab(tab.dataset.infoTab));
+  tab.addEventListener('keydown',event=>{
+   if(!['ArrowLeft','ArrowRight'].includes(event.key))return;
+   event.preventDefault();
+   const direction=event.key==='ArrowRight'?1:-1;
+   const next=infoTabs[(index+direction+infoTabs.length)%infoTabs.length];
+   next.focus();
+   activateInfoTab(next.dataset.infoTab);
+  });
+ });
+
+ const volumeInput=document.querySelector('#calcVolume');
+ const palletInput=document.querySelector('#calcPallets');
+ if(!volumeInput||!palletInput)return;
+
+ const productId=product.dataset.productId;
+ const price=Number(product.dataset.price);
+ const palletVolume=Number(product.dataset.palletVolume);
+ const palletBlocks=Number(product.dataset.palletBlocks);
+ let calculatedVolume=palletVolume;
+
+ const drawCalculation=source=>{
+  let pallets;
+  if(source==='volume'){
+   pallets=Math.max(1,Math.ceil((Number(volumeInput.value)||palletVolume)/palletVolume-1e-9));
+  }else{
+   pallets=Math.max(1,Math.round(Number(palletInput.value)||1));
+   volumeInput.value=String(Math.round(pallets*palletVolume*1000)/1000);
+  }
+  palletInput.value=String(pallets);
+  calculatedVolume=Math.round(pallets*palletVolume*1000)/1000;
+  document.querySelector('#calcActualVolume').textContent=`${formatVolume(calculatedVolume)} м³`;
+  document.querySelector('#calcResultBlocks').textContent=`${formatVolume(pallets*palletBlocks)} шт.`;
+  const total=fmt(Math.round(calculatedVolume*price));
+  document.querySelector('#calcTotal').textContent=total;
+  document.querySelector('#calcButtonTotal').textContent=total;
+ };
+ volumeInput.addEventListener('input',()=>drawCalculation('volume'));
+ palletInput.addEventListener('input',()=>drawCalculation('pallets'));
+ document.querySelector('#calcVolumeMinus').addEventListener('click',()=>{
+  volumeInput.value=String(Math.max(.001,Math.round(((Number(volumeInput.value)||palletVolume)-1)*1000)/1000));
+  drawCalculation('volume');
+ });
+ document.querySelector('#calcVolumePlus').addEventListener('click',()=>{
+  volumeInput.value=String(Math.round(((Number(volumeInput.value)||palletVolume)+1)*1000)/1000);
+  drawCalculation('volume');
+ });
+ document.querySelector('#calcPalletMinus').addEventListener('click',()=>{
+  palletInput.value=Math.max(1,(Number(palletInput.value)||1)-1);
+  drawCalculation('pallets');
+ });
+ document.querySelector('#calcPalletPlus').addEventListener('click',()=>{
+  palletInput.value=(Number(palletInput.value)||1)+1;
+  drawCalculation('pallets');
+ });
+ document.querySelector('#detailAdd').addEventListener('click',()=>addToCart(productId,calculatedVolume));
+ drawCalculation('pallets');
+}

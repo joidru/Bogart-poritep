@@ -1,0 +1,12 @@
+---
+layout: layouts/base.njk
+permalink: cart.html
+title: "Корзина — Poritep"
+pageClass: cart
+---
+{% from "components/icon.njk" import icon %}
+{% set hero = pageHeroes.cart %}
+{% include "components/page-hero.njk" %}<section class="section"><div class="container" id="cartContent"></div>
+<template id="cartEmptyTemplate"><div class="empty-cart"><h2>Корзина пока пуста</h2><p>Добавьте газобетон и сопутствующие материалы из каталога.</p><a class="btn btn-red" href="catalog.html">Перейти в каталог</a></div></template>
+<template id="cartLayoutTemplate"><div class="cart-layout"><div class="cart-items"></div><aside class="cart-summary"><h3>Ваш заказ</h3><div class="summary-row"><span>Товаров</span><b data-cart-count></b></div><div class="summary-row"><span>Доставка</span><b>по расчёту</b></div><div class="summary-row summary-total"><span>Итого</span><b data-cart-total></b></div><p class="product-note">Итоговая цена уточняется после проверки кратности поддона и адреса доставки.</p><a class="btn btn-red" href="contacts.html#request">Оформить заявку</a></aside></div></template>
+<template id="cartItemTemplate"><div class="cart-item"><img data-cart-image alt=""><div><h3 data-cart-name></h3><p data-cart-meta></p></div><div class="qty"><button type="button" data-change="-1" aria-label="Уменьшить количество">{{ icon("minus") }}</button><input data-cart-qty readonly><button type="button" data-change="1" aria-label="Увеличить количество">{{ icon("plus") }}</button></div><strong data-cart-price></strong><button class="remove" type="button" data-remove aria-label="Удалить товар">{{ icon("trash") }}</button></div></template></section>

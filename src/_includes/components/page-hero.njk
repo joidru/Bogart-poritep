@@ -1,0 +1,9 @@
+<section class="page-hero{% if hero.class %} {{ hero.class }}{% endif %}">
+  <div class="container">
+    <div class="breadcrumbs"><a href="index.html">Главная</a> / {{ hero.breadcrumb }}</div>
+    <div class="page-title">
+      {% if hero.label %}<div><span class="overline">{{ hero.label }}</span><h1>{{ hero.title | safe }}</h1></div>{% else %}<h1>{{ hero.title | safe }}</h1>{% endif %}
+      <p>{{ hero.text }}</p>
+    </div>
+  </div>
+</section>

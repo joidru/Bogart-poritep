@@ -11,6 +11,7 @@ PAGES = [
     "objects.html",
     "about.html",
     "contacts.html",
+    "calculator.html",
 ]
 
 

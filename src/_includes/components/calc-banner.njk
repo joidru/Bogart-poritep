@@ -1,0 +1,17 @@
+{% from "components/icon.njk" import icon %}
+<section class="calc-banner calc-banner-detailed">
+  <div class="container">
+    <div class="calc-copy">
+      <span class="overline light">{{ cta.label }}</span>
+      <h2>{{ cta.title }}</h2>
+      <p>{{ cta.text }}</p>
+      <div class="calc-contact"><span>{{ cta.contactLabel }}</span><a href="{{ cta.contactUrl }}">{{ cta.contactText }}</a></div>
+    </div>
+    <aside class="calc-ticket">
+      <span>{{ cta.listTitle }}</span>
+      <ul>{% for item in cta.items %}<li>{{ icon("check") }}{{ item }}</li>{% endfor %}</ul>
+      <a class="btn calc-ticket-btn" href="{{ cta.buttonUrl }}">{{ cta.buttonText }}</a>
+      <small>{{ cta.note }}</small>
+    </aside>
+  </div>
+</section>

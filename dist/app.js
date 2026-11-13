@@ -96,7 +96,7 @@ function renderCart(){
 document.querySelectorAll('form').forEach(f=>{f.noValidate=true;f.addEventListener('submit',e=>{f.classList.add('was-validated');if(!f.checkValidity()){e.preventDefault();e.stopImmediatePropagation();f.querySelector(':invalid')?.focus()}},true)});
 document.querySelectorAll('.lead-form').forEach(f=>f.addEventListener('submit',e=>{e.preventDefault();f.reset();f.classList.remove('was-validated');toast('Заявка принята. Мы свяжемся с вами.')}));
 
-const formatVolume=value=>new Intl.NumberFormat('ru-RU',{minimumFractionDigits:0,maximumFractionDigits:3}).format(value);
+function formatVolume(value){return new Intl.NumberFormat('ru-RU',{minimumFractionDigits:0,maximumFractionDigits:3}).format(value)}
 
 function initProductPage(){
  const product=document.querySelector('[data-product-detail]');

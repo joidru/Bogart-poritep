@@ -284,3 +284,13 @@ input[type="checkbox"]:disabled,input[type="radio"]:disabled{background:var(--co
 .faq-toggle-icon .icon{width:22px;height:22px}
 .faq-toggle-icon .icon-minus,.faq-list details[open] .faq-toggle-icon .icon-plus{display:none}
 .faq-list details[open] .faq-toggle-icon .icon-minus{display:block}
+
+/* Compact product detail specifications */
+.detail-specs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:22px;border:0}
+.spec-tile{display:flex;align-items:center;gap:12px;min-width:0;padding:13px 14px;border:1px solid #e7e9e3;border-radius:12px;background:#f8f9f6}
+.spec-tile-icon{display:grid;place-items:center;flex:0 0 38px;width:38px;height:38px;border-radius:10px;background:#e9f0e2;color:#547c32}
+.spec-tile-icon .icon{width:20px;height:20px}
+.spec-tile-copy{display:flex;flex-direction:column;gap:3px;min-width:0}
+.spec-tile-copy span{font-size:12px;line-height:1.25;color:#777}
+.spec-tile-copy b{font-size:15px;line-height:1.3;color:#1d2b1c;font-weight:750;overflow-wrap:anywhere}
+@media(max-width:480px){.detail-specs{gap:8px}.spec-tile{gap:9px;padding:10px}.spec-tile-icon{flex-basis:32px;width:32px;height:32px}.spec-tile-icon .icon{width:18px;height:18px}.spec-tile-copy b{font-size:13px}.spec-tile-copy span{font-size:11px}}

@@ -158,7 +158,7 @@ function initProductPage(){
  volumeInput.addEventListener('input',()=>drawCalculation('volume'));
  palletInput.addEventListener('input',()=>drawCalculation('pallets'));
  document.querySelector('#calcVolumeMinus').addEventListener('click',()=>{
-  volumeInput.value=String(Math.max(.001,Math.round(((Number(volumeInput.value)||palletVolume)-1)*1000)/1000));
+  volumeInput.value=String(Math.max(1,Math.round(((Number(volumeInput.value)||palletVolume)-1)*1000)/1000));
   drawCalculation('volume');
  });
  document.querySelector('#calcVolumePlus').addEventListener('click',()=>{

@@ -145,12 +145,11 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 .buy-calc-summary div:last-child{border-right:0}
 .buy-calc-summary span{color:#748070;font-size:var(--font-small)}
 .buy-calc-summary b{font-size:var(--font-ui);white-space:nowrap}
-.buy-calc-actions{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:10px;margin:16px 20px 8px}
-.buy-calc-button{width:100%;min-width:0;justify-content:space-between;gap:8px;border-radius:10px;padding-left:12px;padding-right:12px}
+.buy-calc-actions{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin:16px 20px 8px}
+.buy-calc-button{width:100%;min-width:0;justify-content:center;gap:8px;border-radius:10px;padding-left:12px;padding-right:12px}
 .buy-calc-button span{min-width:0}
 .buy-calc-one-click{min-width:0;border-radius:10px;text-align:center;white-space:nowrap;padding-left:10px;padding-right:10px}
 .buy-calc-one-click:hover{border-color:#9ca99a;background:#f8faf6}
-.buy-calc-button strong{font-size:var(--font-base)}
 .buy-calc-note{display:block;padding:0 20px 16px;color:#778173;font-size:var(--font-small);line-height:1.45}
 .certificate-list{align-self:center;border-top:1px solid #ccd6c7}
 .certificate-list a{display:grid;grid-template-columns:54px minmax(0,1fr) 30px;gap:18px;align-items:center;padding:20px 8px;border-bottom:1px solid #ccd6c7;transition:background-color .18s,padding .18s}

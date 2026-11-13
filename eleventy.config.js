@@ -4,6 +4,7 @@ export default function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("src/styles.css");
   eleventyConfig.addPassthroughCopy("src/app.js");
   eleventyConfig.addPassthroughCopy("src/calculator.js");
+  eleventyConfig.addPassthroughCopy({ "src/_data/products.json": "products.json" });
 
   eleventyConfig.addFilter("formatPrice", (value) =>
     new Intl.NumberFormat("ru-RU").format(value),

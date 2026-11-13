@@ -151,7 +151,6 @@ function initProductPage(){
   document.querySelector('#calcResultBlocks').textContent=`${formatVolume(pallets*palletBlocks)} шт.`;
   const total=fmt(Math.round(calculatedVolume*price));
   document.querySelector('#calcTotal').textContent=total;
-  document.querySelector('#calcButtonTotal').textContent=total;
  };
  volumeInput.addEventListener('input',()=>drawCalculation('volume'));
  palletInput.addEventListener('input',()=>drawCalculation('pallets'));

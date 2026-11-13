@@ -132,9 +132,14 @@ function initProductPage(){
  if(!volumeInput||!palletInput)return;
 
  const productId=product.dataset.productId;
- const price=Number(product.dataset.price);
- const palletVolume=Number(product.dataset.palletVolume);
- const palletBlocks=Number(product.dataset.palletBlocks);
+ const calculator=product.querySelector('.buy-calculator');
+ const price=Number(calculator?.dataset.price);
+ const palletVolume=Number(calculator?.dataset.palletVolume);
+ const palletBlocks=Number(calculator?.dataset.palletBlocks);
+ if(!Number.isFinite(price)||price<=0||!Number.isFinite(palletVolume)||palletVolume<=0||!Number.isFinite(palletBlocks)||palletBlocks<=0){
+  console.error('Некорректные параметры калькулятора товара');
+  return;
+ }
  let calculatedVolume=palletVolume;
 
  const drawCalculation=source=>{

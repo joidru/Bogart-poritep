@@ -1,13 +1,9 @@
-const products=[
- {id:'d400-200',name:'Стеновой блок D400 625×200×200',category:'wall',cat:'Стеновые блоки',density:'D400',size:'625×200×200 мм',pallet:'80 шт.',perM3:'40 шт.',price:7000,unit:'м³',image:'assets/block-d400.webp',badge:'Хит'},
- {id:'d500-500',name:'Стеновой блок D500 625×500×250',category:'wall',cat:'Стеновые блоки',density:'D500',size:'625×500×250 мм',pallet:'24 шт.',perM3:'12,8 шт.',price:7000,unit:'м³',image:'assets/block-d500.webp',badge:'Для дома'},
- {id:'d600-250',name:'Стеновой блок D600 625×250×200',category:'wall',cat:'Стеновые блоки',density:'D600',size:'625×250×200 мм',pallet:'60 шт.',perM3:'32 шт.',price:7150,unit:'м³',image:'assets/block-d600.webp'},
- {id:'d400-375',name:'Стеновой блок D400 625×375×200',category:'wall',cat:'Стеновые блоки',density:'D400',size:'625×375×200 мм',pallet:'40 шт.',perM3:'21,33 шт.',price:7000,unit:'м³',image:'assets/block-d400.webp',badge:'Тёплая стена'},
- {id:'partition-100',name:'Перегородочный блок D500 625×100×250',category:'partition',cat:'Перегородочные блоки',density:'D500',size:'625×100×250 мм',pallet:'120 шт.',perM3:'64 шт.',price:6400,unit:'м³',image:'assets/block-d400.webp'},
- {id:'u200',name:'U-блок Poritep D500 600×200×250',category:'u-block',cat:'U-образные блоки',density:'D500',size:'600×200×250 мм',pallet:'—',perM3:'—',price:440,unit:'шт.',image:'assets/u-block.webp'},
- {id:'insulation-100',name:'Каменный утеплитель Bonolit D200 100 мм',category:'insulation',cat:'Каменный утеплитель',density:'D200',size:'600×100×250 мм',pallet:'—',perM3:'66,67 шт.',price:7800,unit:'м³',image:'assets/insulation.webp'},
- {id:'formula-heat',name:'Полиуретановый клей «Формула Тепла»',category:'mix',cat:'Клей и смеси',density:'—',size:'баллон 870 мл',pallet:'—',perM3:'до 1,5 м³',price:630,unit:'шт.',image:'assets/glue.webp',badge:'Тонкий шов'}
-];
+// Product data is external to the UI logic. WordPress can replace this JSON endpoint.
+let products=[];
+const productsReady=fetch('products.json')
+ .then(response=>{if(!response.ok)throw new Error('Не удалось загрузить товары');return response.json()})
+ .then(data=>{products=Array.isArray(data)?data:[]})
+ .catch(error=>{console.error(error);toast('Не удалось загрузить каталог товаров')});
 const fmt=n=>new Intl.NumberFormat('ru-RU').format(n)+' ₽';
 const getCart=()=>JSON.parse(localStorage.getItem('poritep-cart')||'{}');
 const saveCart=c=>{localStorage.setItem('poritep-cart',JSON.stringify(c));updateCartCount()};
@@ -47,7 +43,9 @@ if(searchInput){
   location.href='catalog.html?q='+encodeURIComponent(searchInput.value);
  });
 }
-queueMicrotask(()=>{if(document.body.dataset.page==='product')initProductPage();if(document.body.dataset.page==='cart')renderCart()});
+if(document.body.dataset.page==='product')initProductPage();
+if(document.body.dataset.page==='cart')productsReady.then(renderCart);
+if(searchInput)productsReady.then(()=>searchInput.dispatchEvent(new Event('input')));
 function renderCart(){
  const cart=getCart();
  const wrap=document.querySelector('#cartContent');

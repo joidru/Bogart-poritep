@@ -19,7 +19,7 @@ pageClass: product
     <div class="buy-calculator" data-price="7000" data-pallet-volume="2" data-pallet-blocks="80" aria-label="Расчёт заказа">
      <div class="buy-calc-head"><div><b>Рассчитайте заказ</b><span>Отгрузка целыми поддонами</span></div><strong>1 поддон = 2 м³</strong></div>
      <div class="buy-calc-inputs">
-      <label>Нужно, м³<span class="number-stepper"><button id="calcVolumeMinus" type="button" aria-label="Уменьшить объём">{{ icon("minus") }}</button><input id="calcVolume" type="number" min="1" step="1" value="2"><button id="calcVolumePlus" type="button" aria-label="Увеличить объём">{{ icon("plus") }}</button></span></label>
+      <label>Нужно, м³<span class="number-stepper"><button id="calcVolumeMinus" type="button" aria-label="Уменьшить объём">{{ icon("minus") }}</button><input id="calcVolume" type="number" min="2" step="2" value="2"><button id="calcVolumePlus" type="button" aria-label="Увеличить объём">{{ icon("plus") }}</button></span></label>
       <label>Поддоны, шт.<span class="number-stepper"><button id="calcPalletMinus" type="button" aria-label="Уменьшить количество поддонов">{{ icon("minus") }}</button><input id="calcPallets" type="number" min="1" step="1" value="1"><button id="calcPalletPlus" type="button" aria-label="Увеличить количество поддонов">{{ icon("plus") }}</button></span></label>
      </div>
      <div class="buy-calc-summary"><div><span>К отгрузке</span><b id="calcActualVolume"></b></div><div><span>Блоков</span><b id="calcResultBlocks"></b></div><div><span>Стоимость</span><b id="calcTotal"></b></div></div>

@@ -73,7 +73,7 @@
 </header>
 
     <main>
-<div class="container" id="productView" data-product-detail data-product-id="d400-200" data-price="7000" data-pallet-volume="2" data-pallet-blocks="80">
+<div class="container" id="productView" data-product-detail data-product-id="d400-200">
   <div class="breadcrumbs"><a href="index.html">Главная</a> / <a href="catalog.html">Каталог</a> / Стеновые блоки</div>
   <div class="product-detail">
    <div class="detail-gallery"><span class="badge">Хит</span><img src="assets/block-d400.webp" alt="Стеновой блок D400 625×200×200"></div>
@@ -89,7 +89,7 @@
     <div class="detail-price">7 000 ₽ <small>/ м³</small></div>
     <div class="product-note">Цена с НДС при покупке кратно поддону. Точную стоимость доставки рассчитает менеджер.</div>
     
-    <div class="buy-calculator" aria-label="Расчёт заказа">
+    <div class="buy-calculator" data-price="7000" data-pallet-volume="2" data-pallet-blocks="80" aria-label="Расчёт заказа">
      <div class="buy-calc-head"><div><b>Рассчитайте заказ</b><span>Отгрузка целыми поддонами</span></div><strong>1 поддон = 2 м³</strong></div>
      <div class="buy-calc-inputs">
       <label>Нужно, м³<span class="number-stepper"><button id="calcVolumeMinus" type="button" aria-label="Уменьшить объём">
@@ -338,7 +338,7 @@
 </footer>
 
     <div id="toast" class="toast"></div>
-    <script src="app.js"></script>
+    <script src="app.js?v=20261113-2"></script>
     
   </body>
 </html>
